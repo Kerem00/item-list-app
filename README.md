@@ -8,4 +8,5 @@ python main.py
 ## TODO
 * Dependency list is going to be added here.
 * Import and Export will be functional.
+* Theme feature will be functional
 * More commenting to source code will be done.
