@@ -8,5 +8,5 @@ python main.py
 ```
 
 ## TODO
-* Import and Export will be functional.
 * Dependency list is going to be added here.
+* Import and Export will be functional.
