@@ -78,7 +78,7 @@ class Ui_Dialog(object):
             msgEmpty.setIcon(QtWidgets.QMessageBox.Icon.Information)
             msgEmpty.exec_()
         else:
-            if not path.exists("db.json"):
+            if not path.isfile("db.json"):
                 dbfile = open("db.json", "w", encoding="UTF-8")
                 dbfile.close()
 
