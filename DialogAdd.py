@@ -36,9 +36,11 @@ class Ui_Dialog(object):
         self.textComment.setObjectName("textComment")
         self.gridLayout.addWidget(self.textComment, 1, 1, 1, 1)
         self.labelItem = QtWidgets.QLabel(Dialog)
+        self.labelItem.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.labelItem.setObjectName("labelItem")
         self.gridLayout.addWidget(self.labelItem, 0, 0, 1, 1)
         self.labelComment = QtWidgets.QLabel(Dialog)
+        self.labelComment.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.labelComment.setObjectName("labelComment")
         self.gridLayout.addWidget(self.labelComment, 1, 0, 1, 1)
         self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
@@ -56,8 +58,8 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", language.get("actionAdd")))
-        self.labelItem.setText(_translate("Dialog", language.get("columnItem")))
-        self.labelComment.setText(_translate("Dialog", language.get("columnComment")))
+        self.labelItem.setText(_translate("Dialog", language.get("columnItem") + ":"))
+        self.labelComment.setText(_translate("Dialog", language.get("columnComment") + ":"))
 
     def addItem(self):
         if not self.textItem.text().strip() or not self.textComment.text().strip():

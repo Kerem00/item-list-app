@@ -41,9 +41,11 @@ class Ui_Dialog(object):
         self.themeComboBox.setObjectName("themeComboBox")
         self.gridLayout.addWidget(self.themeComboBox, 1, 1, 1, 1)
         self.langLabel = QtWidgets.QLabel(Dialog)
+        self.langLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.langLabel.setObjectName("langLabel")
         self.gridLayout.addWidget(self.langLabel, 0, 0, 1, 1)
         self.themeLabel = QtWidgets.QLabel(Dialog)
+        self.themeLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.themeLabel.setObjectName("themeLabel")
         self.gridLayout.addWidget(self.themeLabel, 1, 0, 1, 1)
 
