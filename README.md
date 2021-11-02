@@ -5,7 +5,7 @@ Download the source code, open a terminal inside source code folder and run with
 ```bash
 python main.py
 ```
-In Windows to get rid of the CMD window that comes with the GUI, change the extention of `main.py` to `.pyw`.
+In Windows, to get rid of the CMD window that comes with the GUI, change the extention of `main.py` to `.pyw`.
 ## TODO
 * Dependency list is going to be added here.
 * Import and Export will be functional.
