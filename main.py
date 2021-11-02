@@ -12,7 +12,7 @@
 #   GNU General Public License for more details.
 
 #   You should have received a copy of the GNU General Public License
-#   along with This program.  If not, see <https://www.gnu.org/licenses/>.
+#   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from DialogAdd import Ui_Dialog as FormAdd
