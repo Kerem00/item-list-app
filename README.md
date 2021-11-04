@@ -10,7 +10,6 @@ In Windows, to get rid of the CMD window that comes with the GUI, change the ext
 * Dependency list is going to be added here.
 * Import and Export will be functional.
 * Column width will be adjusted.
-* ~~Context menu will be added.~~ (Done.)
 * Setup will be created.
 * Theme feature will be functional
 * More commenting to source code will be done.
