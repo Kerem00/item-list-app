@@ -35,6 +35,7 @@ class Ui_MainWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName("verticalLayout")
         self.listBox = QtWidgets.QTableWidget(self.centralwidget)
+        self.listBox.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
         self.listBox.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.listBox.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.listBox.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
@@ -81,6 +82,12 @@ class Ui_MainWindow(object):
         self.actionPreferences.setObjectName("actionPreferences")
         self.actionAbout = QtWidgets.QAction(MainWindow)
         self.actionAbout.setObjectName("actionAbout")
+        self.contextActionAdd = QtWidgets.QAction(MainWindow)
+        self.contextActionAdd.setObjectName("contextActionAdd")
+        self.contextActionEdit = QtWidgets.QAction(MainWindow)
+        self.contextActionEdit.setObjectName("contextActionEdit")
+        self.contextActionRemove = QtWidgets.QAction(MainWindow)
+        self.contextActionRemove.setObjectName("contextActionRemove")
         self.menuFile.addAction(self.actionImport)
         self.menuFile.addAction(self.actionExport)
         self.menuFile.addSeparator()
@@ -94,6 +101,9 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuEdit.menuAction())
         self.menubar.addAction(self.menuSettings.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
+        self.listBox.addAction(self.contextActionAdd)
+        self.listBox.addAction(self.contextActionEdit)
+        self.listBox.addAction(self.contextActionRemove)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -104,6 +114,10 @@ class Ui_MainWindow(object):
         self.actionEdit.triggered.connect(self.open_DialogEdit)
         self.actionRemove.triggered.connect(self.removeItem)
         self.actionPreferences.triggered.connect(self.open_DialogPreferences)
+        self.actionQuit.triggered.connect(lambda: MainWindow.close())
+        self.contextActionAdd.triggered.connect(self.open_DialogAdd)
+        self.contextActionEdit.triggered.connect(self.open_DialogEdit)
+        self.contextActionRemove.triggered.connect(self.removeItem)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -127,6 +141,9 @@ class Ui_MainWindow(object):
         self.actionRemove.setText(_translate("MainWindow", language.get("actionRemove")))
         self.actionPreferences.setText(_translate("MainWindow", language.get("actionPreferences")))
         self.actionAbout.setText(_translate("MainWindow", language.get("actionAbout")))
+        self.contextActionAdd.setText(_translate("MainWindow", language.get("actionAdd")))
+        self.contextActionEdit.setText(_translate("MainWindow", language.get("actionEdit")))
+        self.contextActionRemove.setText(_translate("MainWindow", language.get("actionRemove")))
     
     # Event that triggers when searchBox's text changes
     def textChange(self):
@@ -185,7 +202,7 @@ class Ui_MainWindow(object):
         DialogPreferences.ui.setupUi(DialogPreferences)
         DialogPreferences.exec_()
         DialogPreferences.show()
-    
+
     def removeItem(self):
         r = self.listBox.currentRow()
         if r == -1:
