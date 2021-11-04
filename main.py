@@ -139,7 +139,7 @@ class Ui_MainWindow(object):
                 resultlist.append(item)
 
         # Clear items in listBox
-            self.listBox.setRowCount(0)
+        self.listBox.setRowCount(0)
             
         # Add searched items in listBox
         for item in resultlist:
