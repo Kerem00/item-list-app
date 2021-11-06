@@ -147,11 +147,11 @@ class Ui_MainWindow(object):
     
     # Event that triggers when searchBox's text changes
     def textChange(self):
-        filelist = self.returnItemList()
+        itemlist = self.returnItemList()
         resultlist = []
 
         # Create a new list of items that starts with the word in the searchBox
-        for item in filelist:
+        for item in itemlist:
             if item["item"].lower().startswith(self.searchBox.text().lower()):
                 resultlist.append(item)
 
@@ -167,7 +167,7 @@ class Ui_MainWindow(object):
             self.listBox.setItem(self.listBox.rowCount() - 1, 0, itemItem)
             self.listBox.setItem(self.listBox.rowCount() - 1, 1, itemComment)
             self.listBox.setSortingEnabled(True)
-    
+            
     # Show DialogAdd then clear and update contents of the listBox
     def open_DialogAdd(self):
         DialogAdd = QtWidgets.QDialog()
