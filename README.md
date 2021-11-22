@@ -9,7 +9,6 @@ In Windows, to get rid of the CMD window that comes with the GUI, change the ext
 ## TODO
 * Dependency list is going to be added here.
 * Import and Export will be functional.
-* Column width will be adjusted.
 * Setup will be created.
 * Theme feature will be functional. (It is using the default Qt theme by default.)
 * More commenting to source code will be done.
