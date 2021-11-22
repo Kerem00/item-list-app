@@ -104,6 +104,8 @@ class Ui_MainWindow(object):
         self.listBox.addAction(self.contextActionAdd)
         self.listBox.addAction(self.contextActionEdit)
         self.listBox.addAction(self.contextActionRemove)
+        self.listBox.setColumnWidth(0, 171)
+        self.listBox.setColumnWidth(1, 685)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
