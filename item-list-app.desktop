@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=Item List
+Comment=List anything using a name and a comment section.
+Exec=python /path/to/item-list-app/main.py
+Path=/path/to/item-list-app
+Terminal=false
+Type=Application
