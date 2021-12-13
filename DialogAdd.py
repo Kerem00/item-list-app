@@ -56,6 +56,8 @@ class Ui_Dialog(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
+        global language
+        language = Language.Get()
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", language.get("actionAdd")))
         self.labelItem.setText(_translate("Dialog", language.get("columnItem") + ":"))

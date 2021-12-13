@@ -122,6 +122,8 @@ class Ui_MainWindow(object):
         self.contextActionRemove.triggered.connect(self.removeItem)
 
     def retranslateUi(self, MainWindow):
+        global language
+        language = Language.Get()
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Item List"))
         self.listBox.setSortingEnabled(True)
@@ -204,6 +206,7 @@ class Ui_MainWindow(object):
         DialogPreferences.ui.setupUi(DialogPreferences)
         DialogPreferences.exec_()
         DialogPreferences.show()
+        self.retranslateUi(MainWindow)
 
     def removeItem(self):
         r = self.listBox.currentRow()
