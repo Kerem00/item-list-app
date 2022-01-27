@@ -20,5 +20,4 @@ settings = {
     "theme": "Default"
 }
 
-with open("settings.json", "w", encoding="UTF-8") as settingsfile:
-    json.dump(settings, settingsfile)
+with open("settings.json", "w", encoding="UTF-8") as settingsfile: json.dump(settings, settingsfile)

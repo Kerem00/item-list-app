@@ -20,29 +20,23 @@ import json
 class Language:
     def Get():
         # Parsing settings file
-        with open("settings.json", "r", encoding="UTF-8") as settingsfile:
-            settings = json.load(settingsfile)
+        with open("settings.json", "r", encoding="UTF-8") as settingsfile: settings = json.load(settingsfile)
 
         # Checking language and language file then loading the file
         if settings["language"] == "System":
             system_language = locale.getdefaultlocale()[0]
 
             if path.isfile("langs/{}.json".format(system_language)):
-                with open("langs/{}.json".format(system_language), "r", encoding="UTF-8") as langfile:
-                    language = json.load(langfile)
+                with open("langs/{}.json".format(system_language), "r", encoding="UTF-8") as langfile: language = json.load(langfile)
             else:
                 print("[Warning] {}.json language file is missing, using en_US instead.".format(system_language))
 
-                with open("langs/en_US.json", "r", encoding="UTF-8") as langfile:
-                    language = json.load(langfile)
+                with open("langs/en_US.json", "r", encoding="UTF-8") as langfile: language = json.load(langfile)
         else:
             if path.isfile("langs/{}.json".format(settings["language"])):
-                with open("langs/{}.json".format(settings["language"]), "r", encoding="UTF-8") as langfile:
-                    language = json.load(langfile)
+                with open("langs/{}.json".format(settings["language"]), "r", encoding="UTF-8") as langfile: language = json.load(langfile)
             else:
                 print("[Warning] {}.json language file is missing, using en_US instead.".format(settings["language"]))
                 
-                with open("langs/en_US.json", "r", encoding="UTF-8") as langfile:
-                    language = json.load(langfile)
-
+                with open("langs/en_US.json", "r", encoding="UTF-8") as langfile: language = json.load(langfile)
         return language

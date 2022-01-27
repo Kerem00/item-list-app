@@ -13,7 +13,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 from GetLanguage import Language
 from os import path
 import glob
@@ -53,22 +53,19 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         global language
         language = Language.Get()
-        _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", language.get("actionPreferences")))
-        self.langLabel.setText(_translate("Dialog", language.get("language") + ":"))
-        self.themeLabel.setText(_translate("Dialog", language.get("theme") + ":"))
+        Dialog.setWindowTitle(language.get("actionPreferences"))
+        self.langLabel.setText(language.get("language") + ":")
+        self.themeLabel.setText(language.get("theme") + ":")
 
         # Add list of available languages to langComboBox
         langlist = []
-        for lang in glob.glob("langs/*.json"):
-            langlist.append(path.basename(lang).replace(".json", ""))
+        for lang in glob.glob("langs/*.json"): langlist.append(path.basename(lang).replace(".json", ""))
         langlist.sort()
         langlist.insert(0, "System")
         self.langComboBox.addItems(langlist)
 
         # Load settings file for getting current language setting
-        with open("settings.json", "r", encoding="UTF-8") as settingsfile:
-            settings = json.load(settingsfile)
+        with open("settings.json", "r", encoding="UTF-8") as settingsfile: settings = json.load(settingsfile)
             
         # Select the current language setting on langComboBox
         self.langComboBox.setCurrentIndex(langlist.index(settings["language"]))
@@ -79,5 +76,4 @@ class Ui_Dialog(object):
             "theme": "Default"
         }
 
-        with open("settings.json", "w", encoding="UTF-8") as settingsfile:
-            json.dump(settings, settingsfile)
+        with open("settings.json", "w", encoding="UTF-8") as settingsfile: json.dump(settings, settingsfile)

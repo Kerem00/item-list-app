@@ -13,7 +13,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 from GetLanguage import Language
 from os import path
 import json
@@ -63,10 +63,9 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         global language
         language = Language.Get()
-        _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", language.get("actionEdit")))
-        self.labelItem.setText(_translate("Dialog", language.get("columnItem") + ":"))
-        self.labelComment.setText(_translate("Dialog", language.get("columnComment") + ":"))
+        Dialog.setWindowTitle(language.get("actionEdit"))
+        self.labelItem.setText(language.get("columnItem") + ":")
+        self.labelComment.setText(language.get("columnComment") + ":")
         
         # Set textBox texts to passed data
         self.textItem.setText(self.varItem)
@@ -85,10 +84,8 @@ class Ui_Dialog(object):
                 dbfile.close()
 
             with open("db.json", "r", encoding="UTF-8") as dbfile:
-                try:
-                    jsondb = json.load(dbfile)
-                except:
-                    jsondb = []
+                try: jsondb = json.load(dbfile)
+                except: jsondb = []
             
             if self.varItem.lower() != self.textItem.text().lower():
                 for item in jsondb:
@@ -106,5 +103,4 @@ class Ui_Dialog(object):
                     item["comment"] = self.textComment.text()
                     break
 
-            with open("db.json", "w", encoding="UTF-8") as dbfile:
-                json.dump(jsondb, dbfile)
+            with open("db.json", "w", encoding="UTF-8") as dbfile: json.dump(jsondb, dbfile)

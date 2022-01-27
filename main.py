@@ -14,7 +14,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 from DialogAdd import Ui_Dialog as FormAdd
 from DialogEdit import Ui_Dialog as FormEdit
 from DialogPreferences import Ui_Dialog as FormPreferences
@@ -124,30 +124,29 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         global language
         language = Language.Get()
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Item List"))
+        MainWindow.setWindowTitle("Item List")
         self.listBox.setSortingEnabled(True)
 
         # language.get("key") method for applying language
         item = self.listBox.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", language.get("columnItem")))
+        item.setText(language.get("columnItem"))
         item = self.listBox.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", language.get("columnComment")))
-        self.menuFile.setTitle(_translate("MainWindow", language.get("menuFile")))
-        self.menuEdit.setTitle(_translate("MainWindow", language.get("menuEdit")))
-        self.menuSettings.setTitle(_translate("MainWindow", language.get("menuSettings")))
-        self.menuHelp.setTitle(_translate("MainWindow", language.get("menuHelp")))
-        self.actionImport.setText(_translate("MainWindow", language.get("actionImport")))
-        self.actionExport.setText(_translate("MainWindow", language.get("actionExport")))
-        self.actionQuit.setText(_translate("MainWindow", language.get("actionQuit")))
-        self.actionAdd.setText(_translate("MainWindow", language.get("actionAdd")))
-        self.actionEdit.setText(_translate("MainWindow", language.get("actionEdit")))
-        self.actionRemove.setText(_translate("MainWindow", language.get("actionRemove")))
-        self.actionPreferences.setText(_translate("MainWindow", language.get("actionPreferences")))
-        self.actionAbout.setText(_translate("MainWindow", language.get("actionAbout")))
-        self.contextActionAdd.setText(_translate("MainWindow", language.get("actionAdd")))
-        self.contextActionEdit.setText(_translate("MainWindow", language.get("actionEdit")))
-        self.contextActionRemove.setText(_translate("MainWindow", language.get("actionRemove")))
+        item.setText(language.get("columnComment"))
+        self.menuFile.setTitle(language.get("menuFile"))
+        self.menuEdit.setTitle(language.get("menuEdit"))
+        self.menuSettings.setTitle(language.get("menuSettings"))
+        self.menuHelp.setTitle(language.get("menuHelp"))
+        self.actionImport.setText(language.get("actionImport"))
+        self.actionExport.setText(language.get("actionExport"))
+        self.actionQuit.setText(language.get("actionQuit"))
+        self.actionAdd.setText(language.get("actionAdd"))
+        self.actionEdit.setText(language.get("actionEdit"))
+        self.actionRemove.setText(language.get("actionRemove"))
+        self.actionPreferences.setText(language.get("actionPreferences"))
+        self.actionAbout.setText(language.get("actionAbout"))
+        self.contextActionAdd.setText(language.get("actionAdd"))
+        self.contextActionEdit.setText(language.get("actionEdit"))
+        self.contextActionRemove.setText(language.get("actionRemove"))
     
     # Event that triggers when searchBox's text changes
     def textChange(self):
@@ -217,23 +216,21 @@ class Ui_MainWindow(object):
             msgEmpty.setIcon(QtWidgets.QMessageBox.Icon.Information)
             msgEmpty.exec_()
             return
+        
         if not path.isfile("db.json"):
             dbfile = open("db.json", "w", encoding="UTF-8")
             dbfile.close()
 
         with open("db.json", "r", encoding="UTF-8") as dbfile:
-            try:
-                jsondb = json.load(dbfile)
-            except:
-                jsondb = []
+            try: jsondb = json.load(dbfile)
+            except: jsondb = []
         
         for i in range(len(jsondb)):
             if jsondb[i]["item"] == self.listBox.item(r, 0).text():
                 del jsondb[i]
                 break
         
-        with open("db.json", "w", encoding="UTF-8") as dbfile:
-            json.dump(jsondb, dbfile)
+        with open("db.json", "w", encoding="UTF-8") as dbfile: json.dump(jsondb, dbfile)
             
         self.updateItemList()
     
@@ -243,10 +240,8 @@ class Ui_MainWindow(object):
             dbfile.close()
 
         with open("db.json", "r", encoding="UTF-8") as dbfile:
-            try:
-                jsondb = json.load(dbfile)
-            except:
-                jsondb = []
+            try: jsondb = json.load(dbfile)
+            except: jsondb = []
         
         if not len(jsondb) < 1:
             # Clear items in listBox
@@ -261,8 +256,7 @@ class Ui_MainWindow(object):
                 self.listBox.setItem(self.listBox.rowCount() - 1, 0, itemItem)
                 self.listBox.setItem(self.listBox.rowCount() - 1, 1, itemComment)
                 self.listBox.setSortingEnabled(True)
-        else:
-            self.listBox.setRowCount(0)
+        else: self.listBox.setRowCount(0)
 
     def returnItemList(self):
         if not path.isfile("db.json"):
@@ -270,11 +264,8 @@ class Ui_MainWindow(object):
             dbfile.close()
 
         with open("db.json", "r", encoding="UTF-8") as dbfile:
-            try:
-                jsondb = json.load(dbfile)
-            except:
-                jsondb = []
-
+            try: jsondb = json.load(dbfile)
+            except: jsondb = []
         return jsondb
 
 if __name__ == "__main__":

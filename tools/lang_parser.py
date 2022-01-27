@@ -61,8 +61,5 @@ lang_tr = {
     "theme": "Tema"
 }
 
-with open("en_US.json", "w", encoding="UTF-8") as langfile:
-    json.dump(lang_en, langfile)
-
-with open("tr_TR.json", "w", encoding="UTF-8") as langfile:
-    json.dump(lang_tr, langfile)
+with open("en_US.json", "w", encoding="UTF-8") as langfile: json.dump(lang_en, langfile)
+with open("tr_TR.json", "w", encoding="UTF-8") as langfile: json.dump(lang_tr, langfile)
