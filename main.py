@@ -150,13 +150,8 @@ class Ui_MainWindow(object):
     
     # Event that triggers when searchBox's text changes
     def textChange(self):
-        itemlist = self.returnItemList()
-        resultlist = []
-
         # Create a new list of items that starts with the word in the searchBox
-        for item in itemlist:
-            if item["item"].lower().startswith(self.searchBox.text().lower()):
-                resultlist.append(item)
+        resultlist = [item for item in self.returnItemList() if item["item"].lower().startswith(self.searchBox.text().lower())]
 
         # Clear items in listBox
         self.listBox.setRowCount(0)
