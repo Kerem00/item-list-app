@@ -186,9 +186,7 @@ class Ui_MainWindow(object):
             msgEmpty.exec_()
             return
         DialogEdit = QtWidgets.QDialog()
-        DialogEdit.varItem = self.listBox.item(r, 0).text()
-        DialogEdit.varComment = self.listBox.item(r, 1).text()
-        DialogEdit.ui = FormEdit(DialogEdit.varItem, DialogEdit.varComment)
+        DialogEdit.ui = FormEdit(self.listBox.item(r, 0).text(), self.listBox.item(r, 1).text())
         DialogEdit.ui.setupUi(DialogEdit)
         DialogEdit.exec_()
         DialogEdit.show()
