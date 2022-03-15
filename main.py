@@ -52,7 +52,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.searchBox)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 900, 24))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 900, 34))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
