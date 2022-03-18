@@ -169,7 +169,6 @@ class Ui_MainWindow(object):
         DialogAdd.ui = FormAdd()
         DialogAdd.ui.setupUi(DialogAdd)
         DialogAdd.exec_()
-        DialogAdd.show()
         self.updateItemList()
     
     # Pass selected item and show DialogEdit then clear and update contents of the listBox
@@ -186,7 +185,6 @@ class Ui_MainWindow(object):
         DialogEdit.ui = FormEdit(self.listBox.item(r, 0).text(), self.listBox.item(r, 1).text())
         DialogEdit.ui.setupUi(DialogEdit)
         DialogEdit.exec_()
-        DialogEdit.show()
         self.updateItemList()
     
     def open_DialogPreferences(self):
@@ -194,7 +192,6 @@ class Ui_MainWindow(object):
         DialogPreferences.ui = FormPreferences()
         DialogPreferences.ui.setupUi(DialogPreferences)
         DialogPreferences.exec_()
-        DialogPreferences.show()
         self.retranslateUi(MainWindow)
 
     def removeItem(self):
