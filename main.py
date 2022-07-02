@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 #   Item List - Lists anything using a name and a comment section.
 #   Copyright (C) 2021  Kerem Biçen
 
