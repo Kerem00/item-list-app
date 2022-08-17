@@ -15,4 +15,5 @@ pyuic5 -x main.ui -o main.py
 * Import and Export will be functional.
 * Setup will be created.
 * Theme feature will be functional. (It is using the default Qt theme by default.)
+* Code will be refactored to use inheritance.
 * More commenting to source code will be done.
